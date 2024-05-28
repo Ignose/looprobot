@@ -510,6 +510,8 @@ const Orchard: Task[] = [
   },
 ];
 
+const dartsGoodMeat = () => get("everfullDartPerks").split(",").length >= 11
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Nuns: Task[] = [
   {
@@ -547,6 +549,11 @@ const Nuns: Task[] = [
           modifier: "meat",
           familiar: $familiar`Trick-or-Treating Tot`,
           equip: $items`beer helmet, distressed denim pants, bejeweled pledge pin, li'l pirate costume`,
+        };
+      } else if (dartsGoodMeat()) {
+        return {
+          modifier: "meat",
+          equip: $items`beer helmet, distressed denim pants, bejeweled pledge pin, amulet coin, Everfull Dart Holster`, // Use amulet coin (if we have) to avoid using orb
         };
       }
       return {

@@ -948,7 +948,7 @@ export const MiscQuest: Quest = {
         cliExecute("mayam rings fur meat eyepatch yam");
         cliExecute("mayam rings eye lightning wall explosion");
       },
-      outfit: { familiar: $familiar`Chest Mimic` },
+      outfit: { familiar: $familiar`Grey Goose` },
       limit: { tries: 2 },
       freeaction: true,
     },
