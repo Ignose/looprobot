@@ -161,6 +161,17 @@ const Desert: Task[] = [
     limit: { soft: 10 },
   },
   {
+    name: "Buff Up",
+    after: ["Compass"],
+    completed: () => get("desertExploration") >= 100 || have($effect`Everything Is Bananas`),
+    ready: () => have($item`banana candle`),
+    do: () => {
+      if(have($item`fire ant pheromones`)) use($item`fire ant pheromones`)
+      use($item`banana candle`)
+    },
+    limit: { soft: 1 },
+  },
+  {
     name: "Oasis Drum",
     after: ["Compass"],
     ready: () => have($item`worm-riding hooks`) || itemAmount($item`worm-riding manual page`) >= 15,
