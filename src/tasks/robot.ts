@@ -221,6 +221,7 @@ export const RobotQuest: Quest = {
     {
       name: "Unequip Hat Phase 1",
       after: ["Equip Hat Phase 1", "Giant/Top Floor", "War/Flyers Start", "War/Junkyard End"],
+      ready: () => YouRobot.scrap() >= 15,
       completed: () =>
         YouRobot.canUseFamiliar() || flyersDone() || get(toTempPref("hatSwapped1"), false),
       do: () => {
@@ -234,7 +235,7 @@ export const RobotQuest: Quest = {
       name: "Equip Hat Phase 2",
       after: ["Unequip Hat Phase 1", "Knob/Harem", "Crypt/Finish"],
       priority: () => (get("gooseDronesRemaining") > 0 ? Priorities.GoodDrone : Priorities.None),
-      ready: () => flyersDone(),
+      ready: () => flyersDone() && YouRobot.scrap() >= 15,
       completed: () =>
         YouRobot.canUse($slot`hat`) ||
         (step("questL12War") === 999 && step("questL05Goblin") === 999),

@@ -113,6 +113,10 @@ const Temple: Task[] = [
         !have($item`industrial fire extinguisher`)
       )
         use($item`11-leaf clover`);
+      if (
+        have($item`august scepter`) && have($item`Eight Days a Week Pill Keeper`)
+      )
+        cliExecute("pillkeeper semirare");
     },
     do: $location`The Hidden Temple`,
     outfit: () => {
