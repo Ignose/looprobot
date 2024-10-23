@@ -587,6 +587,13 @@ export const freekillSources: FreekillSource[] = [
     equip: { equip: $items`Jurassic Parka`, modes: { parka: "dilophosaur" } },
     do: $skill`Spit jurassic acid`,
   },
+  {
+    name: "Sheriff Authority",
+    available: () =>
+      have($item`Sheriff moustache`) && have($item`Sheriff badge`) && have($item`Sheriff pistol`) && get("_authorityUses",0) < 3,
+    equip: { equip: $items`Sheriff moustache, Sheriff badge, Sheriff pistol` },
+    do: $skill`Assert your Authority`,
+  },
 ];
 
 /**
