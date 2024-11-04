@@ -1,5 +1,6 @@
 import {
   cliExecute,
+  create,
   Effect,
   Familiar,
   familiarWeight,
@@ -163,6 +164,21 @@ const banishSources: BanishSource[] = [
       have($skill`Batter Up!`) && myClass() === $class`Seal Clubber` && myFury() >= 5,
     do: $skill`Batter Up!`,
     equip: { weapon: $item`seal-clubbing club` },
+  },
+  {
+    name: "Handful of split pea soup",
+    prepare: () => {
+      // eslint-disable-next-line libram/verify-constants
+      if (have($item`whirled peas`, 2)) {
+        // eslint-disable-next-line libram/verify-constants
+        create(1, $item`handful of split pea soup`);
+      }
+    },
+    available: () =>
+      // eslint-disable-next-line libram/verify-constants
+      have($item`handful of split pea soup`) || have($item`whirled peas`, 2),
+    // eslint-disable-next-line libram/verify-constants
+    do: $item`handful of split pea soup`,
   },
 ];
 
