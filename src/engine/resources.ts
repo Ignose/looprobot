@@ -168,16 +168,12 @@ const banishSources: BanishSource[] = [
   {
     name: "Handful of split pea soup",
     prepare: () => {
-      // eslint-disable-next-line libram/verify-constants
       if (have($item`whirled peas`, 2)) {
-        // eslint-disable-next-line libram/verify-constants
         create(1, $item`handful of split pea soup`);
       }
     },
     available: () =>
-      // eslint-disable-next-line libram/verify-constants
       have($item`handful of split pea soup`) || have($item`whirled peas`, 2),
-    // eslint-disable-next-line libram/verify-constants
     do: $item`handful of split pea soup`,
   },
 ];
